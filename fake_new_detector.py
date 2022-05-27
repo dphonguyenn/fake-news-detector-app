@@ -95,4 +95,4 @@ if st.button('Predict it news is real or fake 👈'):
 
 
 st.markdown('---')
-st.markdown('Member: Nguyễn Bùi Duy Phong')
+st.markdown('Member: Nguyễn Bùi Duy Phong, Trần Văn Thiên, Phạm Văn Hùng, Đỗ Trần Công Phương, Nguyễn Nhiêu Thịnh, Trần Duy Thống')
