@@ -1,6 +1,15 @@
-# fake_new_detector
-<center><b><font size="+3">FAKE NEW DETECTION</font></b></center>
----
+
+# FAKE NEW DETECTION
+
+# Phân công nhiệm vụ
+|MSSV    | HO TEN               | NHIEM VU    |
+|:-------|:---------------------|:-----------:|
+|19110102| Nguyễn Bùi Duy Phong | Tiền xử lí dữ liệu|
+|19110136| Trần Văn Thiên       | Tiền xử lí dữ liệu|
+|19110080| Phạm Văn Mạnh Hùng   | Mô hình hóa  |
+|19110133| Đỗ Trần Công Phương  | LogisticRegressionCV|
+|19110003| Nguyễn Nhiêu Thịnh    |DecisionTreeClassifier|
+|19110137| Trần Duy Thống       | Design streamlit|
 
 # Import các thư viện cần thiết
 
