@@ -42,9 +42,6 @@ news_df = pd.read_csv('vn_news_223_tdlfr.csv', encoding='utf-8')
 news_df.sample(5)
 ```
 
-
-
-
 <div>
 <table border="1" class="dataframe">
   <thead>

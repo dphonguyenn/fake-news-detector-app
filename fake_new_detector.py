@@ -36,7 +36,7 @@ stopword = set([i.rstrip() for i in stopword.readlines()])
 new_df = pd.DataFrame({'text': [text], 'domain': [''], 'label': ['']})
 # và nối chúng với tập dữ liệu ban đầu (tổ chức theo các fields định sắn)
 new_df = pd.concat([news_df, new_df], axis=0, ignore_index=True)
-print(new_df)
+# print(new_df)
 
 #%%
 # tạo regex cho tập dữ liệu
@@ -48,15 +48,24 @@ stopword = pd.Series(list(stopword)).str.replace(' ', '_').to_list()
 clean_text = new_df['text'].replace(f'[{puncs}]', ',', regex=True).\
              apply(ViTokenizer.tokenize).str.lower().\
              str.split().apply(remove_stopword)
-
+# print(clean_text)
+#%%
+# tạo thêm cột mới clean_text cho tập data frame
 new_df['clean_text'] = clean_text
+# parse các giá trị trong mảng clean_test (của mỗi row) thành lại chuỗi
 new_df['clean_text'] = new_df.apply(lambda x: ' '.join(x['clean_text']) + ' ' + x['domain'], axis=1)
+# print(new_df)
+#%%
+# tạo ra tập dữ liệu train
 train_data = TfidfVectorizer(lowercase=False).fit_transform(new_df['clean_text'])
 
+# tập được train là tấp cả dữ liệu của tập train
 x_train = train_data[:-1]
+# tập test là dữ liệu được nhập sau
 x_test = train_data[-1:]
 
-
+# sử dụng models đc chọn để train dữ liệu
+# kết quả được dự đoán sẽ dựa vào độ fit của tập test so với tập dữ liệu đã train
 if st.button('Predict it news is real or fake 👈'):
     if model == 'LogisticRegressionCV':
         lg_re = LogisticRegressionCV(Cs=20, cv=5, solver='newton-cg', max_iter=10000).\
